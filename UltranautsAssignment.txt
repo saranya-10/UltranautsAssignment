@@ -1,0 +1,209 @@
+#include <iostream>
+#include<string.h>
+
+using namespace std;
+void iteration1()
+  {   char a[30];
+      // Assuming the password size cannot be more than 30 
+      int letter=0;
+      int digit=0;
+      int passwordsize=0;
+      cout<<"Enter your password \t";
+      cin>>a;
+      for(int i=0;a[i]!='\0';i++)
+      {
+        passwordsize++;
+      }
+      cout<<"\nLength of password [ "<<a<<" ] is :: "<<passwordsize<<"\n";
+      if(passwordsize<=7)
+       { cout<<"The password is not accepted \n "; 
+       }
+       else
+         {cout<<"Hurry! you match the criteria of correct password length \n";
+         }
+      for(int i=0;i<30;i++)
+       {
+        if(isalpha((unsigned char)a[i])) {
+                letter+=1;
+        }
+        if(isdigit((unsigned char)a[i])) {
+                digit+=1;
+        }
+    }
+    if(digit && letter>= 1) {
+        cout<<"The password is accepted";
+    }
+}
+void iteration2()
+  {   char a[30];
+      // Assuming the password size cannot be more than 30 
+      int letter=0;
+      int digit=0;
+      int passwordsize=0;
+      cout<<"Enter your password \t";
+      cin>>a;
+      for(int i=0;a[i]!='\0';i++)
+      {
+        passwordsize++;
+      }
+      cout<<"\nLength of password [ "<<a<<" ] is :: "<<passwordsize<<"\n";
+      if(passwordsize<=7)
+       { cout<<"The password is not accepted as your password is less than 8 characters \n"; 
+       }
+       
+        for(int i=0;i<30;i++)
+         {
+          if(isalpha((unsigned char)a[i])) 
+            {
+                 letter+=1;
+            }
+          if(isdigit((unsigned char)a[i])) 
+            {
+                 digit+=1;
+            }
+         }
+        if((digit && letter>= 1) && (passwordsize>=8)) 
+        { cout<<"The password is accepted \n";
+        }
+        if(digit==0)
+        { cout<<"The password is not accepted as your password doesnot include a digit \n";
+        }
+        else if(letter==0)
+        { cout<<"The password is not accepted as your password doesnot include a letter \n";
+        }
+    }
+void iteration3()
+  {   char a[30];
+      int usertype=0;
+      int splchar=0;
+      // Assuming the password size cannot be more than 30 
+      int letter=0;
+      int digit=0;
+      int passwordsize=0;
+      cout<<"Please enter 1 if you are a normal user \nPlease enter 2 if you are an Admin user \n";
+      cin>>usertype;
+      cout<<"Enter your password \t";
+      cin>>a;
+      for(int i=0;a[i]!='\0';i++)
+      {
+        passwordsize++;
+      }
+      cout<<"\nLength of password [ "<<a<<" ] is :: "<<passwordsize<<"\n";
+      
+      if(usertype==1)
+      { 
+          if(passwordsize<=7)
+          { cout<<"The password is not accepted as your normal user password is less than 8 characters \n"; }
+          for(int i=0;i<passwordsize;i++)
+          {
+          if(isalpha((unsigned char)a[i])) 
+            {
+                 letter+=1;
+            }
+          if(isdigit((unsigned char)a[i])) 
+            {
+                 digit+=1;
+            }
+         }
+         if((digit && letter>= 1)&&(passwordsize>=8)&&(usertype==1)) 
+         { cout<<"The password is accepted \n";}
+         if((digit==0) && (usertype==1))
+         { cout<<"The password is not accepted as your password doesnot include a digit \n";}
+         else if((letter==0) && (usertype==1))
+         { cout<<"The password is not accepted as your password doesnot include a letter \n";}
+      }
+     if(usertype==2)
+       {  if(passwordsize<=12)
+           { cout<<"The password is not accepted as your Admin user password is less than 13 characters \n"; }
+           
+         for(int i=0;i<30;i++)
+         { if((a[i]=='!')||(a[i]=='@')||(a[i]=='#')||(a[i]=='$')||(a[i]=='%')||(a[i]=='^')||(a[i]=='&')||(a[i]=='*'))
+            { splchar++;}
+             
+         }
+            
+         if((splchar>=1) && (passwordsize>=12) && (usertype==2))
+          { cout<<"The password is accepted \n";}
+       }
+     
+    }
+void iteration4()
+  {   char a[30];
+      int usertype=0;
+      int splchar=0;
+      // Assuming the password size cannot be more than 30 
+      int letter=0;
+      int digit=0;
+      int passwordsize=0;
+      cout<<"Please enter 1 if you are a normal user \nPlease enter 2 if you are an Admin user \n";
+      cin>>usertype;
+      cout<<"Enter your password \t";
+      cin>>a;
+      for(int i=0;a[i]!='\0';i++)
+      {
+        passwordsize++;
+      }
+      cout<<"\nLength of password [ "<<a<<" ] is :: "<<passwordsize<<"\n";
+      
+      if(usertype==1)
+      { 
+          if(passwordsize<=9)
+          { cout<<"The password is not accepted as your normal user password is less than 10 characters \n"; }
+          for(int i=0;i<passwordsize;i++)
+          {
+          if(isalpha((unsigned char)a[i])) 
+            {
+                 letter+=1;
+            }
+          if(isdigit((unsigned char)a[i])) 
+            {
+                 digit+=1;
+            }
+         }
+         if((digit && letter>= 1)&&(passwordsize>=10)&&(usertype==1)) 
+         { cout<<"The password is accepted \n";}
+         if((digit==0) && (usertype==1))
+         { cout<<"The password is not accepted as your password doesnot include a digit \n";}
+         else if((letter==0) && (usertype==1))
+         { cout<<"The password is not accepted as your password doesnot include a letter \n";}
+      }
+     if(usertype==2)
+       {  if(passwordsize<=12)
+           { cout<<"The password is not accepted as your Admin user password is less than 13 characters \n"; }
+           
+         for(int i=0;i<30;i++)
+         { if((a[i]=='!')||(a[i]=='@')||(a[i]=='#')||(a[i]=='$')||(a[i]=='%')||(a[i]=='^')||(a[i]=='&')||(a[i]=='*'))
+            { splchar++;}
+             
+         }
+            
+         if((splchar>=3) && (passwordsize>=12) && (usertype==2))
+          { cout<<"The password is accepted \n";}
+         else
+          { cout<<"The password is not accepted as your password must have atleast 3 special characters \n"; }
+       }
+     
+    }
+int main()
+{
+    int iter;
+    cout<<"Press 1 for interation 1 \n";
+    cout<<"Press 2 for interation 2 \n";
+    cout<<"Press 3 for interation 3 \n";
+    cout<<"Press 4 for interation 4 \n";
+    cin>>iter;
+    if(iter==1)
+      {  iteration1();
+      }
+    else if(iter==2)
+      { iteration2();
+      }
+    else if(iter==3)
+      { iteration3();
+      }
+    else if(iter==4)
+      { iteration4();
+      }
+    return 0;
+}
+
